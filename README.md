@@ -12,6 +12,12 @@ ip | source code for IP blocks
 projects | sample project files for the various boards
 constraints | constraint files for the various boards. includes pinout and timings
 
+Note: After the Al Williams Fork this is all under vidordemo. The other directories are:
+* C - The C program for creating app.h
+* EmptySketch - A companion sketch for the demo
+
+Read more about this fork below.
+
 ## Things to know before getting started
 Once again this repository is intended only for people already familiar with FPGA programming. At the moment the primary intent is to disclose IP block functionality and present the infrastructure we created so that potantial contributors can start to evaluate it. As of today this repository does not contain full source code required to compile the released libraries as parts of it requires some more polishing both in terms of code and in terms of licensing (in some cases from third parties). 
 Full examples of working FPGAs, along with instructions to create a library and access the FPGA, will be posted here but will not necessarily reflect the official images we are publishing.
