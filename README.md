@@ -27,5 +27,29 @@ Programming the FPGA is possible in various ways:
 1. programming the image in RAM through USB Blaster (this requires mounting the FPGA JTAG header). this can be done safely only when SAM D21 is in bootloader mode as in other conditions it may access JTAG and cause a contention
 1. programming the image in RAM through the emulated USB Blaster via SAM D21 (this component is pending release)
 
+## Fork by Al Williams (Hackaday)
+I forked this to create a slightly different way of doing things. Here's the changes:
+1. Changed the top .v file to include user.v so you get access to the top-level I/O without having to edit the boilerplate
+2. Turned off Smart Compile so Quartus won't skip rebuilding your code when only the include file changes
+3. Created new vidorcvt C program to do the translation of the binary output
+4. Simplified example plus "blank template" for both FPGA and sketch
 
+## About Vidorcvt
+The Java program provided by Arduino was compiled so it only works with Java 11 and it is very simple anyway. It just
+flips bit order. So I rewrote it very quickly in C. You should be able to compile it with:
+    gcc -o vidorcvt vidorcvt.c
 
+Note that if you look at the code you could probably convert it to any language you like -- it is very trivial. There are no arguments
+so you'll need to redirect as in:
+    vidorcvt <binaryfile.ttf >app.h
+	
+## About the Example Project/Sketch
+The vidordemo directory has a Quartus project that blinks an LED on D6 at two rates, depending on the state of D5.
+
+The blink-sketch is a simple sketch that lets you control the blink rate by treating D5 as an output. It also sets D6 
+as an input and monitors the LED blinking status. This shows two-way communication with the FPGA.
+Note: If you stop the sketch from driving D5 you could use a wire or switch to control the LED blink rate. However,
+if the sketch drives the pin like it does now, do not try to manually force D5 high or low.
+
+## On Your Own
+You should be able to change user.v and the provided Sketch to handle your own designs. It would be simple to use, for example, SPI to communicate between the FPGA and the CPU. I left the IP directory in from Arduino if you need any of those components.
