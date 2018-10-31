@@ -14,6 +14,7 @@ constraints | constraint files for the various boards. includes pinout and timin
 
 Note: After the Al Williams Fork this is all under vidordemo. The other directories are:
 * C - The C program for creating app.h
+* Shell - Awk program if you don't like C
 * EmptySketch - A companion sketch for the demo
 
 Read more about this fork below.
@@ -38,6 +39,7 @@ I forked this to create a slightly different way of doing things. Here's the cha
 1. Changed the top .v file to include user.v so you get access to the top-level I/O without having to edit the boilerplate
 2. Turned off Smart Compile so Quartus won't skip rebuilding your code when only the include file changes
 3. Created new vidorcvt C program to do the translation of the binary output
+4. Created awk script to do the same operation if you don't like the C program
 4. Simplified example plus "blank template" for both FPGA and sketch
 
 ## About Vidorcvt
@@ -48,6 +50,8 @@ flips bit order. So I rewrote it very quickly in C. You should be able to compil
 Note that if you look at the code you could probably convert it to any language you like -- it is very trivial. There are no arguments
 so you'll need to redirect as in:
     vidorcvt <binaryfile.ttf >app.h
+	
+If you prefer to use awk, you can find the awk equivalent in the shell subdirectory.	
 	
 ## About the Example Project/Sketch
 The vidordemo directory has a Quartus project that blinks an LED on D6 at two rates, depending on the state of D5.
