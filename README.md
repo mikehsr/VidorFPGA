@@ -1,5 +1,7 @@
 # VidorFPGA
 
+Read more about this fork: https://hackaday.com/2018/11/01/hands-on-with-the-arduino-fpga/
+
 This repository includes FPGA IP Blocks compatible with the Arduino Vidor family of products and is aimed to users already familiar with FPGA development process.
 FPGA development using native tools, although encouraged, is not supported by Arduino as it is quite complex difficult to support. If you feel this challenge is for you please know that we can only provide very limited support as our main efforts will be targeted at providing a smooth experience within Arduino IDE and Arduino Create through precompiled libraries and with the web tool that will provde an easy way to assemble IP blocks.
 
