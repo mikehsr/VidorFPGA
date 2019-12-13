@@ -44,6 +44,10 @@ I forked this to create a slightly different way of doing things. Here's the cha
 4. Created awk script to do the same operation if you don't like the C program
 4. Simplified example plus "blank template" for both FPGA and sketch
 
+## Fork by Mike Hasenfratz (WA6FXT)
+1. Forked in hopes of creating a version I can build and modify. 
+*** Updates will go here ***
+
 ## About Vidorcvt
 The Java program provided by Arduino was compiled so it only works with Java 11 and it is very simple anyway. It just
 flips bit order. So I rewrote it very quickly in C. You should be able to compile it with:
